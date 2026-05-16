@@ -1,0 +1,239 @@
+* {
+ 	font-family: "JetbrainsMono Nerd Font", Helvetica, FontAwesome, Roboto, Arial, sans-serif;
+    font-size: 16px;
+}
+
+menu {
+	border-radius: 15px;
+	background: #DB51BB;
+	color: #000000;
+	border: 4px solid #48246E;	
+}
+menuitem {
+	border-radius: 15px;	
+}
+menuitem:hover {
+	background-color: #48246E;
+	color: #FFFFFF;
+}
+
+
+
+window#waybar {
+    background-color: transparent;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+    background-color: #48246E;
+}
+#network:hover {
+	background-color: transparent;
+	background-image: linear-gradient(90deg,  #48246E, #DB51BB);
+}
+#backlight:hover {
+	background-color: #DB51BB;
+}
+#battery:hover {
+	background-color: #DB51BB;
+}
+#tray:hover {
+	background-color: #DB51BB;
+}
+#clock:hover {
+	background-color: #48246E;
+	color: #FFFFFF;
+}
+#custom-power:hover {
+	background-color: #DB51BB;
+}
+
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #DB51BB;
+}
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+#workspaces button.focused {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+
+#mode {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+
+
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#window {
+	background-color: transparent;
+	font-weight: bold;
+	background-image: linear-gradient(90deg, transparent 25%,#DB51BB);
+	border-radius: 0px 30px 30px 0px;
+	min-width: 300px;
+}
+
+#controls {
+	 background-color: transparent;
+	 background-image: linear-gradient(270deg, transparent 25%,#DB51BB);
+	 border-radius: 30px 0px 0px 30px;
+}
+
+#workspaces {
+    margin: 0 4px;
+}
+
+
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    color: #000000;
+    background-color: #DB51BB;
+    border-radius: 30px;
+    font-size: 100%;
+    
+}
+
+#battery {
+   		color: #FFFFFF;
+   		background-color: inherit;
+        border-radius: 0;
+        font-size: 100%;
+   
+}
+#battery.charging, #battery.plugged {
+    color: #ffffff;
+    background-color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+label:focus {
+    background-color: #000000;
+}
+
+#backlight {
+    color: #FFFFFF;
+    background-color: inherit;
+    border-radius: 0;
+    font-size: 100%;
+}
+
+#network {
+    background-color: inherit;
+    color: #FFFFFF;
+	border-radius: 0;
+    font-size: 100%;   
+}
+#network.disconnected {
+    background-color: #f53c3c;
+    border-radius: 0;
+    font-size: 100%;
+}
+
+#pulseaudio {
+    color: #FFFFFF;
+    background-color: inherit;
+    font-size: 100%;
+}
+#pulseaudio.muted {
+    background-color: #DB51BB;
+    color: #2a5c45;
+}
+
+#tray {
+    color: #FFFFFF;
+    background-color: inherit;
+    border-radius: 0;
+    font-size: 100%;
+}
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#custom-power {
+	color: #FFFFFF;
+	background-color: inherit;
+	border-radius: 0;
+	font-size: 200%;
+}

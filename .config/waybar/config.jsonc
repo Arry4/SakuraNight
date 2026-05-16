@@ -1,0 +1,144 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "top",
+    "position": "top",
+    "passtrough": false,
+    "height": 50,
+    "spacing": 0, // Gaps between modules (4px)
+
+    // Choose the order of the modules
+    "modules-left": [  
+       "hyprland/workspaces",
+       "hyprland/window"        
+    ],
+  	"modules-center": [
+       "clock"  
+ 	],
+   	"modules-right": [
+		"group/controls"
+   	],
+
+    // Modules configuration
+   "hyprland/window": {
+        "format": "󱦰 {} ",
+        "separate-outputs": true
+    },
+    
+    "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+    	   "urgent": "",
+           "active": "",
+           "default": ""
+        },
+    "on-click": "activate"
+    },
+
+    
+
+    "tray": {
+        "icon-size": 32,
+        "spacing": 10
+    },
+
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt><big>{calendar}</big></tt>",
+        "calendar": {
+        		"mode"          : "month",
+        		"mode-mon-col"  : 3,
+        		"weeks-pos"     : "right",
+        		"on-scroll"     : 1,
+        		"on-click-right": "mode",
+        		"format": {
+        			"months":     "<span color='#DB51BB'><b>{}</b></span>",
+        			"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        			"weeks":      "<span color='#DB51BB'><b>W{}</b></span>",
+        			"weekdays":   "<span color='#DB51BB'><b>{}</b></span>",
+        			"today":      "<span color='#DB51BB'><b><u>{}</u></b></span>"
+        		}
+        	},
+        	"actions": {
+        		"on-click-right": "mode",
+        		"on-click-forward": "tz_up",
+        		"on-click-backward": "tz_down",
+        		"on-scroll-up": "shift_up",
+        		"on-scroll-down": "shift_down"
+        	}
+        },
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon} ",
+        "format-full": "{capacity}% {icon} ",
+        "format-charging": "{capacity}% 󰂄 ",
+        "format-plugged": "{capacity}%  ",
+        "format-alt": "{time} {icon} ",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+
+    "network": {
+ 		"format-wifi": "WiFi:   ({signalStrength}%) ",
+        "format-ethernet": "Connected   󱘖",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+	"custom/power": {
+  		"format" : " 󰐥 ",
+  		"tooltip": false,
+  		"menu": "on-click",
+  		"menu-file": "~/.config/waybar/power_menu.xml",
+  		"menu-actions": {
+  			"shutdown": "shutdown now",
+  			"reboot": "reboot",
+  			"suspend": "systemctl suspend",
+  			"hibernate": "systemctl hibernate",
+  		},
+  },
+
+	"group/controls":{
+		"orientation": "horizontal",
+		"modules":[
+			"pulseaudio",
+        	"network",
+        	"backlight",
+        	"battery",
+        	"tray",
+        	"custom/power"
+		]
+	}  
+}
