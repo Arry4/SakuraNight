@@ -5,7 +5,7 @@
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "thunar"
+local fileManager = "dolphin"
 local menu        = "hyprlauncher"
 local browser 	  = "floorp"
 local discord 	  = "discord"
@@ -132,8 +132,7 @@ hl.bind(mainMod .. "+ SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
 
 
 -- Blue light filter
-hl.bind("CTRL + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500")) -- turn on
-hl.bind("CTRL + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset identity")) -- turn off
+hl.bind("CTRL + XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.config/swaync/lightfilter.sh")) -- turn on and off
 
 
 -- Change resolution 2K into fullHD and vice versa
@@ -159,3 +158,31 @@ if is_high_res then
         end
         end)
 
+
+-- Change layout (dwindle, master, scrolling)
+-- Define aviable layouts
+local layouts = {"scrolling", "dwindle", "master" }
+
+-- Function to change layout
+local function toggle_layout()
+-- Get current layout
+local current = hl.get_config("general.layout")
+local next_layout = layouts[1]
+
+-- Get next layout
+for i, layout in ipairs(layouts) do
+    if layout == current then
+        next_layout = layouts[(i % #layouts) + 1]
+        break
+        end
+        end
+
+-- Dynamically change layout
+hl.config({ general = { layout = next_layout } })
+end
+
+-- Bind to change layout - SUPER + CTRL + M
+hl.bind(mainMod .. " + CTRL + M", toggle_layout)
+
+
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("notify-send Hello"))

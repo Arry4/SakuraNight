@@ -1,0 +1,6 @@
+Sakura_pink = "rgb(DB51BB)"
+Light_pink = "rgb(e0b2e4)"
+Dark_pink = "rgb(ff00ff)"
+Night_sky = "rgb(48246E)"
+Light_blue = "rgb(b2dbe4)"
+Blue = "rgb(00d4ff)"

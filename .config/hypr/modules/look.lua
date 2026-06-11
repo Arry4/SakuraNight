@@ -12,8 +12,8 @@ hl.config({
         border_size = 4,
 
         col = {
-            active_border   = { colors = {"rgb(e0b2e4)", "rgb(ff00ff)"}, angle = 60 },
-          inactive_border = { colors = {"rgb(b2dbe4)", "rgb(00d4ff)"}, angle = 45 },
+            active_border   = { colors = {Light_pink, Dark_pink}, angle = 60 },
+          inactive_border = { colors = {Light_blue, Blue}, angle = 45 },
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -23,7 +23,7 @@ hl.config({
         allow_tearing = false,
 
         -- layout = "dwindle",
-        layout = "scrolling",
+         layout = "scrolling",
         -- layout = "master",
     },
 

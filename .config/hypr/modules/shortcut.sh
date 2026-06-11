@@ -21,7 +21,7 @@ echo "
 Applications:
 Super + Enter 				= Kitty terminal
 Super + E 				= Thunar file manager
-Super + Space				= Wofi apprunner 
+Super + Space				= rofi apprunner
 Super + A 				= Firefox browser
 Super + Z 				= Vivaldi browser
 Super + D				= Discord communicator
@@ -61,9 +61,9 @@ Super + SHIFT + ,                       = swap column with right column
 Behaviour:
 Super + M				= exit hyprland and log out
 Super + Shift + L 			= lock screen
-Ctrl + brightness down 			= turn on blue light filter
-Ctrl + briggtness up			= turn off blue ligt filter
+Ctrl + brightness down 			= turn on and off blue light filter
 Super + Shift + B 			= reload waybar
 Super + I				= open terminal with this keybinds info once again	
 Super + CTRL + R                        = change resolution between 2560x1440 and 1920x1080
+Syper + CTRL + M                        = change layouts between Scrolling, dwindle and master
 "
