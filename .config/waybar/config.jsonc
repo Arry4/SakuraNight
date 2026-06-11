@@ -12,7 +12,7 @@
        "hyprland/window"        
     ],
   	"modules-center": [
-       "clock"  
+       "clock"
  	],
    	"modules-right": [
 		"group/controls"
@@ -89,14 +89,14 @@
         "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
     },
 
-    "network": {
- 		"format-wifi": "WiFi:   ({signalStrength}%) ",
-        "format-ethernet": "Connected   󱘖",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
+//    "network": {
+// 		"format-wifi": "WiFi:   ({signalStrength}%) ",
+//        "format-ethernet": "Connected   󱘖",
+ //       "tooltip-format": "{ifname} via {gwaddr} ",
+ //       "format-linked": "{ifname} (No IP) ",
+ //       "format-disconnected": "Disconnected ⚠",
+ //       "format-alt": "{ifname}: {ipaddr}/{cidr}"
+ //   },
 
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
@@ -130,15 +130,42 @@
   		},
   },
 
+   "custom/notification": {
+    "tooltip": true,
+    "format": "<span size='20pt'> {icon} </span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+
 	"group/controls":{
 		"orientation": "horizontal",
 		"modules":[
+
+
 			"pulseaudio",
-        	"network",
+
+        	//"network",
         	"backlight",
         	"battery",
         	"tray",
-        	"custom/power"
+        	"custom/notification"
+        	//"custom/power"
 		]
 	}  
 }
+

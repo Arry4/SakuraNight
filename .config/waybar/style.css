@@ -46,12 +46,17 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #48246E;
+    background-color: #DB51BB;
+    border-radius: 30px 0px 0px 30px;
 }
-#network:hover {
+#custom-notification:hover {
+    background-color: #DB51BB;
+}
+
+/*#network:hover {
 	background-color: transparent;
 	background-image: linear-gradient(90deg,  #48246E, #DB51BB);
-}
+} */
 #backlight:hover {
 	background-color: #DB51BB;
 }
@@ -195,7 +200,7 @@ label:focus {
     font-size: 100%;
 }
 
-#network {
+/*#network {
     background-color: inherit;
     color: #FFFFFF;
 	border-radius: 0;
@@ -205,7 +210,7 @@ label:focus {
     background-color: #f53c3c;
     border-radius: 0;
     font-size: 100%;
-}
+} */
 
 #pulseaudio {
     color: #FFFFFF;
@@ -236,4 +241,11 @@ label:focus {
 	background-color: inherit;
 	border-radius: 0;
 	font-size: 200%;
+}
+
+#custom-notification {
+font-family: "NotoSansMono Nerd Font";
+color: #FFFFFF;
+background-color: inherit;
+font-size: 100%;
 }
