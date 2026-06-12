@@ -135,7 +135,7 @@ hl.bind(mainMod .. "+ SHIFT + B", hl.dsp.exec_cmd("~/.config/waybar/launch.sh"))
 hl.bind("CTRL + XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.config/swaync/lightfilter.sh")) -- turn on and off
 
 
--- Change resolution 2K into fullHD and vice versa
+-- Change resolution from 2560x1440 into 1920x1080 and vice versa
 hl.bind(mainMod .. " + CTRL + R", function()
 if is_high_res then
     -- If res is 2560x1440, change to 1920x1080
@@ -146,8 +146,11 @@ if is_high_res then
         scale    = 1
     })
     is_high_res = false
+    -- send notification to swaync
+    hl.dispatch(hl.dsp.exec_cmd([[notify-send "Resolution Changed to:" "1920x1080"]]))
+
     else
-        -- If res is 1920x1080, go back to 2560x1440
+    -- If res is 1920x1080, go back to 2560x1440
         hl.monitor({
             output   = "eDP-1",
             mode     = "2560x1440@60",
@@ -155,8 +158,11 @@ if is_high_res then
             scale    = 1
         })
         is_high_res = true
+        -- send notification to swaync
+         hl.dispatch(hl.dsp.exec_cmd([[notify-send "Resolution Changed to:" "2560x1440"]]))
         end
-        end)
+    end
+)
 
 
 -- Change layout (dwindle, master, scrolling)
@@ -179,10 +185,14 @@ for i, layout in ipairs(layouts) do
 
 -- Dynamically change layout
 hl.config({ general = { layout = next_layout } })
+
+-- Send notification about current layout
+local layoutnotify = string.format("notify-send -a 'Hyprland' -h string:x-canonical-private-synchronous:layout 'Layout changed' 'New layout: %s'", next_layout)
+hl.exec_cmd(layoutnotify)
+
 end
 
 -- Bind to change layout - SUPER + CTRL + M
 hl.bind(mainMod .. " + CTRL + M", toggle_layout)
 
-
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("notify-send Hello"))
+hl.bind(mainMod .. "+ O", hl.dsp.exec_cmd([[notify-send "Hello"]]))

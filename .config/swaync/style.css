@@ -1,10 +1,13 @@
+@import "colors.css";
+
+
 :root {
-  --cc-bg: rgba(46, 46, 46, 0.7);
+  --cc-bg: rgba(72, 36, 110, 0.4);
   --noti-border-color: rgba(255, 255, 255, 0.15);
-  --noti-bg: 48, 48, 48;
-  --noti-bg-alpha: 0.8;
+  --noti-bg: @Night_sky;
+  --noti-bg-alpha: 1;
   --noti-bg-darker: rgb(38, 38, 38);
-  --noti-bg-hover: rgb(56, 56, 56);
+  --noti-bg-hover: @Sakura_pink;
   --noti-bg-focus: rgba(68, 68, 68, 0.6);
   --noti-close-bg: rgb(78, 78, 78);
   --noti-close-bg-hover: rgb(94, 94, 94);
@@ -49,7 +52,7 @@ notificationwindow, blankwindow {
 .close-button {
   /* The notification Close Button */
   background: var(--noti-close-bg);
-  color: var(--text-color);
+  color: @White;
   text-shadow: none;
   padding: 0;
   border-radius: 100%;
@@ -63,7 +66,7 @@ notificationwindow, blankwindow {
 
 .close-button:hover {
   box-shadow: none;
-  background: var(--noti-close-bg-hover);
+  background: @Sakura_pink;
   transition: var(--hover-tranistion);
   border: none;
 }
@@ -87,7 +90,7 @@ notificationwindow, blankwindow {
   border: var(--border);
   padding: 0;
   transition: var(--hover-tranistion);
-  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+  background: var(--noti-bg);
 }
 
 .notification-row .notification-background .notification.low {
@@ -208,7 +211,7 @@ notificationwindow, blankwindow {
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button {
   margin-left: 4px;
-  background: rgba(var(--noti-bg), var(--noti-bg-alpha));
+  background: var(--noti-bg);
   border: var(--border);
   border-radius: var(--border-radius);
   color: var(--text-color);
@@ -317,6 +320,10 @@ notificationwindow, blankwindow {
   background-color: var(--noti-bg-hover);
 }
 
+
+
+
+
 .control-center {
   /* The Control Center which contains the old notifications + widgets */
   background: var(--cc-bg);
@@ -380,6 +387,7 @@ notificationwindow, blankwindow {
 }
 
 /* DND widget */
+
 .widget-dnd label {
   color: var(--text-color);
   margin-right: 8px;
@@ -394,6 +402,12 @@ notificationwindow, blankwindow {
 .widget-dnd switch slider {
   border-radius: var(--border-radius);
 }
+
+.widget-dnd > switch:checked {
+  background: @Sakura_pink;
+  /*background-color: transparent;*/
+}
+
 
 /* Label widget */
 .widget-label > label {
@@ -472,11 +486,11 @@ notificationwindow, blankwindow {
 
 .widget-buttons-grid flowboxchild > button.toggle:checked {
   /* style given to the active toggle button */
-    color: #DB51BB;
+    color: @Sakura_pink;
 }
 
 .widget-buttons-grid button:hover {
-  background: #DB51BB;
+  background: @Sakura_pink;
 }
 
 /* Menubar widget */
@@ -537,6 +551,11 @@ notificationwindow, blankwindow {
   --widget-volume-row-icon-size: 24px;
 }
 
+.widget-volume {
+ color: @White;
+
+}
+
 /* Each row app icon */
 .widget-volume row image {
   -gtk-icon-size: var(--widget-volume-row-icon-size);
@@ -549,12 +568,27 @@ notificationwindow, blankwindow {
   border-radius: var(--border-radius);
 }
 
+.widget-volume trough highlight {
+  background: @Sakura_pink;
+}
+
+
 /* Slider widget */
 .widget-slider label {
   font-size: inherit;
 }
 
 /* Backlight widget */
+.widget-backlight{
+  color: @White;
+
+}
+
+.widget-backlight trough highlight {
+  background: @Sakura_pink;
+}
+
+
 /* Inhibitors widget */
 .widget-inhibitors > label {
   margin-right: 8px;

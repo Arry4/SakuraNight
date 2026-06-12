@@ -1,3 +1,5 @@
+@import "colors.css";
+
 * {
  	font-family: "JetbrainsMono Nerd Font", Helvetica, FontAwesome, Roboto, Arial, sans-serif;
     font-size: 16px;
@@ -5,23 +7,23 @@
 
 menu {
 	border-radius: 15px;
-	background: #DB51BB;
-	color: #000000;
-	border: 4px solid #48246E;	
+	background: @Sakura_pink;
+	color: @Black;
+	border: 4px solid @Night_sky;
 }
 menuitem {
 	border-radius: 15px;	
 }
 menuitem:hover {
-	background-color: #48246E;
-	color: #FFFFFF;
+	background-color: @Night_sky;
+	color: @White;
 }
 
 
 
 window#waybar {
     background-color: transparent;
-    color: #ffffff;
+    color: @White;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -41,16 +43,16 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px @White;
 }
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #DB51BB;
+    background-color: @Sakura_pink;
     border-radius: 30px 0px 0px 30px;
 }
 #custom-notification:hover {
-    background-color: #DB51BB;
+    background-color: @Sakura_pink;
 }
 
 /*#network:hover {
@@ -58,34 +60,34 @@ button:hover {
 	background-image: linear-gradient(90deg,  #48246E, #DB51BB);
 } */
 #backlight:hover {
-	background-color: #DB51BB;
+	background-color: @Sakura_pink;
 }
 #battery:hover {
-	background-color: #DB51BB;
+	background-color: @Sakura_pink;
 }
 #tray:hover {
-	background-color: #DB51BB;
+	background-color: @Sakura_pink;
 }
 #clock:hover {
-	background-color: #48246E;
-	color: #FFFFFF;
+	background-color: @Night_sky;
+	color: @White;
 }
 #custom-power:hover {
-	background-color: #DB51BB;
+	background-color: @Sakura_pink;
 }
 
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #DB51BB;
+    color: @Sakura_pink;
 }
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 #workspaces button.focused {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px @White;
 }
 #workspaces button.urgent {
     background-color: #eb4d4b;
@@ -94,7 +96,7 @@ button:hover {
 
 #mode {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px @White;
 }
 
 
@@ -118,20 +120,20 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: @White;
 }
 
 #window {
 	background-color: transparent;
 	font-weight: bold;
-	background-image: linear-gradient(90deg, transparent 25%,#DB51BB);
+	background-image: linear-gradient(90deg, transparent 25%,@Sakura_pink);
 	border-radius: 0px 30px 30px 0px;
 	min-width: 300px;
 }
 
 #controls {
 	 background-color: transparent;
-	 background-image: linear-gradient(270deg, transparent 25%,#DB51BB);
+	 background-image: linear-gradient(270deg, transparent 25%,@Sakura_pink);
 	 border-radius: 30px 0px 0px 30px;
 }
 
@@ -151,36 +153,36 @@ button:hover {
 }
 
 #clock {
-    color: #000000;
-    background-color: #DB51BB;
+    color: @Black;
+    background-color: @Sakura_pink;
     border-radius: 30px;
     font-size: 100%;
     
 }
 
 #battery {
-   		color: #FFFFFF;
+   		color: @White;
    		background-color: inherit;
         border-radius: 0;
         font-size: 100%;
    
 }
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: @White;
+    background-color: @Ligh_pink;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @White;
+        color: @Black;
     }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @Red;
+    color: @White;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -190,40 +192,28 @@ button:hover {
 
 
 label:focus {
-    background-color: #000000;
+    background-color: @Black;
 }
 
 #backlight {
-    color: #FFFFFF;
+    color: @White;
     background-color: inherit;
     border-radius: 0;
     font-size: 100%;
 }
-
-/*#network {
-    background-color: inherit;
-    color: #FFFFFF;
-	border-radius: 0;
-    font-size: 100%;   
-}
-#network.disconnected {
-    background-color: #f53c3c;
-    border-radius: 0;
-    font-size: 100%;
-} */
 
 #pulseaudio {
-    color: #FFFFFF;
+    color: @White;
     background-color: inherit;
     font-size: 100%;
 }
 #pulseaudio.muted {
-    background-color: #DB51BB;
-    color: #2a5c45;
+    background-color: @Sakura_pink;
+    color: @Blue;
 }
 
 #tray {
-    color: #FFFFFF;
+    color: @White;
     background-color: inherit;
     border-radius: 0;
     font-size: 100%;
@@ -233,19 +223,12 @@ label:focus {
 }
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#custom-power {
-	color: #FFFFFF;
-	background-color: inherit;
-	border-radius: 0;
-	font-size: 200%;
+    background-color: @Red;
 }
 
 #custom-notification {
 font-family: "NotoSansMono Nerd Font";
-color: #FFFFFF;
+color: @White;
 background-color: inherit;
 font-size: 100%;
 }
